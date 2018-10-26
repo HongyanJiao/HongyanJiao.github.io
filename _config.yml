@@ -97,7 +97,7 @@ service-worker: true
 
 
 # Friends
-friends: [
+友情链接: [
     {
         title: "BCC",
         href: "http://bcc.blcu.edu.cn/"
