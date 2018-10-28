@@ -59,11 +59,12 @@ kramdown:
 # Disqus（https://disqus.com/）
 # disqus_username: qiubaiying
 
+
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: f2c84e7629bb1446c1a4                            #生成的clientID
-  clientSecret: ca6d6139d1e1b8c43f8b2e19492ddcac8b322d0d    #生成的clientSecret
+  clientID: 3cc06f77c12ee48cc611                           #生成的clientID
+  clientSecret: f2086a7ec584d84b82a4febd9e9ec533102db3d9    #生成的clientSecret
   repo: hongyanjiao.github.io    #仓库名称
   owner: hongyanjiao    #github用户名
   admin: hongyanjiao
