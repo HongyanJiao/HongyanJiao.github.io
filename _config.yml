@@ -7,7 +7,7 @@ description: "deadline是第一生产力"
 keyword: "hongyan, Blog, 博客, 矫红岩, 矫红岩的博客, 红岩, Apple, iPhone，iOS"
 url: "http://hongyanjiao.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
+github_repo: "https://github.com/HongyanJiao/HongyanJiao.github.io" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
