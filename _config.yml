@@ -2,7 +2,7 @@
 title: 矫红岩
 SEOTitle: 矫红岩的博客
 header-img: img/post-bg-desk.jpg
-email: jiaohongyan@163.com
+email: jiaohongyan0815@163.com
 description: "deadline是第一生产力"
 keyword: "hongyan, Blog, 博客, 矫红岩, 矫红岩的博客, 红岩, Apple, iPhone，iOS"
 url: "http://hongyanjiao.github.io"          # your host, for absolute URL
@@ -18,12 +18,12 @@ sidebar-avatar: /img/about_jessica.jpg      # use absolute URL, seeing it's used
 
 # SNS settings
 RSS: false
-# weibo_username:    jiaohongyan
+weibo_username:    萌萌的小饺子
 # zhihu_username:     hongyanjiao
 github_username:    hongyanjiao
-#facebook_username:  hongyanjiao
+facebook_username:  hongyanjiao
 #jianshu_username:   e71990ada2fd
-#twitter_username:   qiubaiying
+twitter_username:   qiubaiying
 
 
 
@@ -79,7 +79,7 @@ gitalk:
 
 # Google Analytics
 #ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+#ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
