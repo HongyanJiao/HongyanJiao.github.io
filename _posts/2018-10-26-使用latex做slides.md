@@ -51,7 +51,7 @@ tags:
 \end{document}
 ```
 F9运行，或点击左上圈出的图标
-![image](https://github.com/HongyanJiao/HongyanJiao.github.io/blob/master/img/ctex-beamner.png?raw=true)<br />
+![image](https://github.com/HongyanJiao/HongyanJiao.github.io/blob/master/img/ctex-beamer.png?raw=true)<br />
 ## 解析脚本
 我们来看一下刚刚做了什么：
 1. beamer是制作slides需要用到的包；
