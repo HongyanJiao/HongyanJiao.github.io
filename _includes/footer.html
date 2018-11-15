@@ -1,9 +1,12 @@
 <!-- Footer -->
 <footer>
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
+                    
+
                     {% if site.RSS %}
                     <li>
                         <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
@@ -90,8 +93,11 @@
                     </li>
                     {% endif %}
                 </ul>
+                
                 <p class="copyright text-muted">
-                    Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
+                    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                    <span id="busuanzi_container_site_pv";style="text-align:center";>访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+                    <br/>Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
                     <br>
                     Theme on <a href="{{ site.github_repo }}">GitHub</a> |
                     <iframe
@@ -266,5 +272,6 @@
         });
     });
 </script>
+
 {% endif %}
 
