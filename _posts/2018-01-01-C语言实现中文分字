@@ -1,0 +1,81 @@
+---
+layout:     post
+title:      C语言实现中文分字
+subtitle:   通过C语言读文件，获取中文并分解汉字
+date:       2019-01-01
+author:     矫红岩
+header-img: img/go-bg.png
+catalog: true
+tags:
+    - c
+	  - c++
+---
+
+## 读文件
+C语言读文件，以下摘自《C语言入门经典第5版》：
+1. 文件是一种存储设备，即使关掉计算机，数据也不会消失，通常存储到硬盘上；
+2. 文件是一系列字节；
+3. C语言处理文件时，程序通过文件指针或流指针来引用文件；
+4. 打开文件：将内部文件指针变量关联到一个特定的外部文件名称上的过程；
+
+若文件较大，应按行读取:fopen->fgets->fclose;
+```
+FILE* fpInp;
+	fpInp = fopen(filename, "rb");//二进制方式读
+	if (fpInp == NULL) {
+		printf("Error open %s\n", filename);
+		return false;
+	}
+	char pszBuff[1024];
+	while (fgets(pszBuff, 1024, fpInp)) {
+		if (pszBuff[strlen(pszBuff) - 1] == '\n')
+			pszBuff[strlen(pszBuff) - 1] = 0;
+		if (pszBuff[strlen(pszBuff) - 1] == '\r')
+			pszBuff[strlen(pszBuff) - 1] = 0;
+  }
+	fclose(fpInp);
+  fpInp=NULL;
+```
+若文件较小，可以一起读出：fopen->fseek->ftell->fseek->fread->flose;
+```
+FILE* fpIn;
+    fpIn=fopen(filename,"rb");
+    if(fpIn == NULL){
+        printf("open failed\n");
+        return false;
+    }
+    fseek(fpIn,0,SEEK_END);
+    int nSize;
+    nSize=ftell(fpIn);
+    fseek(fpIn,0,SEEK_SET);
+    char* psBuffer=new char[nSize];
+    if( psBuffer == NULL){
+        printf("buffer failed\n");
+        return false;
+    }
+    fread(psBuffer,sizeof(char),nSize,fpIn);
+    fclose(fpIn);
+    fpIn = NULL;
+```
+## 一个简单的读文件的例子
+截取了《三国演义》里的前两行做个测试。
+![image](https://github.com/HongyanJiao/HongyanJiao.github.io/blob/master/img/c-readfile.png?raw=true)<br />
+
+1. FILE：文件指针指向FILE结构包含的文件信息，如读取、写入、更新文件；
+2. fopen：该函数返回特定外部文件的文件指针，在windows系统下可以用fopen_s更为安全的替换版本；
+3. fseek(FILE* fpIn,int offset,int origin)：定位文件指针，距离，参考点的位移，参考点为SEEK_SET文件开头、SEEK_CUR当前位置、SEEK_END文件末尾三种情况；
+4. ftell：指出在文件中的位置；
+5. fread：从文件流中读取数据存入数组；
+6. fclose：断开指针和物理文件名之间的连接；
+
+## 汉字分解
+1. 首先遍历psBuffer，找到汉字。全角字符&0x80为1。我们可以通过这种方式获得全角字符，包括了汉字和全角的标点符号以及空格。若只需要汉字，可以对照汉字编码表限定。
+2. 找到全角字符后设置一个临时变量HZ来存储汉字，可以通过strncpy函数截取汉字。这里需要注意，一个汉字为两个字节，但还需要在后面补上'\0'，因此步长为3.
+3. 在将切分出来的汉字通过push_back函数存入到定义的word数组中遇到了问题。如图，在存入时的汉字都是正确的，但是存入后再次读取，每个元素都被最后一个覆盖了。
+![image](https://github.com/HongyanJiao/HongyanJiao.github.io/blob/master/img/c-pushback.png?raw=true)<br />
+## vector的push_back函数
+为了解决这个问题，写了一个小的测试push_back的函数，如图
+![image](https://github.com/HongyanJiao/HongyanJiao.github.io/blob/master/img/c-testpushback.png?raw=true)<br />
+可见，每一次调用vector，都会自动调用其构造函数和析构函数。也就是将指向汉字的指针释放。<br />
+换个方法，string类型是char类型的数组，不需要指针，因此将char*类型转化为string类型。
+![image](https://github.com/HongyanJiao/HongyanJiao.github.io/blob/master/img/c-string.png?raw=true)<br />
