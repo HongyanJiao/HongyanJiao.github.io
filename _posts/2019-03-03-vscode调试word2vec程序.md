@@ -68,8 +68,8 @@ if [ ! -e text8 ]; then
 fi
 time ./word2vec -train text8 -output vectors.bin -cbow 1 -size 200 -window 8 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15
 ./distance vectors.bin
-
 ```
+
 为了测试指定输入输出和debug三个参数；
 3. "preLaunchTask": "gcc"，若为.c文件使用gcc，若为.cpp文件使用g++
 ## F5调试
