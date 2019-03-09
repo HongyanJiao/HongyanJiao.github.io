@@ -44,15 +44,18 @@ clean:
 makefile文件内容：
 1. Project Structure：即工程结构；
 2. Instruction for files creation：编译指令；
+
+
 makefile文件格式：
 1. 目标项：word2vec
 2. 依赖项：word2vec.c
 3. 编译指令：gcc
+
 在终端输入make执行makefile即可
 ## 配置launch.json
 ![image](https://github.com/HongyanJiao/HongyanJiao.github.io/blob/master/img/launch.png?raw=true)<br />
-vscode打开word2vec.c所在文件夹，选择Debug->Open Configurations，在这里改动launch.json文件<br />
-改动三个地方：
+vscode打开word2vec.c所在文件夹，选择Debug->Open Configurations，在这里改动launch.json文件，改动三个地方：
+
 1. program：将要调试的程序。<br />
 在windows下添加/path/xxx.exe文件，在linux环境下添加目标文件，即makefile中编译word2vec.c生成的word2vec目标文件；
 2. args参数：参考demo-word.sh文件或word2vec.c文件main函数的使用说明
