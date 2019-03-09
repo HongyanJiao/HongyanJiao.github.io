@@ -58,7 +58,7 @@ vscode打开word2vec.c所在文件夹，选择Debug->Open Configurations，在�
 
 1. program：将要调试的程序。<br />
 在windows下添加/path/xxx.exe文件，在linux环境下添加目标文件，即makefile中编译word2vec.c生成的word2vec目标文件；
-2. args参数：参考demo-word.sh文件或word2vec.c文件main函数的使用说明
+2. args参数：参考demo-word.sh文件或word2vec.c文件main函数的使用说明，这里为了测试指定输入输出和debug三个参数；<br />
 ```
 //demo-word.sh
 make
@@ -70,7 +70,7 @@ time ./word2vec -train text8 -output vectors.bin -cbow 1 -size 200 -window 8 -ne
 ./distance vectors.bin
 ```
 
-为了测试指定输入输出和debug三个参数；<br />
+
 3. "preLaunchTask": "gcc"，若为.c文件使用gcc，若为.cpp文件使用g++
 ## F5调试
 配置好launch.json文件后可以设置断点，F5进行调试
