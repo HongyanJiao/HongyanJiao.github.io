@@ -8,7 +8,7 @@ header-img: img/go-bg.png
 catalog: true
 tags:
     - c
-	  - word2vec
+    - word2vec
 ---
 ## ubuntu桌面安装vscode
 Ubuntu软件商店下载的vscode不支持中文，在vscode官网下载.deb格式，双击安装即可。
