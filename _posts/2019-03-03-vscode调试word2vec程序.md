@@ -70,7 +70,7 @@ time ./word2vec -train text8 -output vectors.bin -cbow 1 -size 200 -window 8 -ne
 ./distance vectors.bin
 ```
 
-为了测试指定输入输出和debug三个参数；
+为了测试指定输入输出和debug三个参数；<br />
 3. "preLaunchTask": "gcc"，若为.c文件使用gcc，若为.cpp文件使用g++
 ## F5调试
 配置好launch.json文件后可以设置断点，F5进行调试
